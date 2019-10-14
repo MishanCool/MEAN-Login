@@ -10,15 +10,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { SignUpComponent } from './components/user/sign-up/sign-up.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 // routes
 import { appRoutes } from './routes';
+import { SignInComponent } from './components/user/sign-in/sign-in.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserProfileComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
