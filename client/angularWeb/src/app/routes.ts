@@ -2,6 +2,9 @@ import { Routes } from '@angular/router';
 
 import { UserComponent } from './components/user/user.component';
 import { SignUpComponent } from './components/user/sign-up/sign-up.component';
+import { SignInComponent } from './components/user/sign-in/sign-in.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
 
 export const appRoutes: Routes = [
   {
@@ -9,7 +12,16 @@ export const appRoutes: Routes = [
     children: [{ path: '', component: SignUpComponent }]
   },
 
+  {
+    path: 'login', component: UserComponent,
+    children: [{ path: '', component: SignInComponent }]
+  },
+
+  {
+    path: 'userprofile', component: UserProfileComponent,
+  },
+
   {                                                           //
-    path: '', redirectTo: '/signup', pathMatch: 'full'        // Add default route
+    path: '', redirectTo: '/login', pathMatch: 'full'        // Add default route
   }                                                           //
 ];
