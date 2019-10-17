@@ -1,4 +1,7 @@
+import { NgForm } from '@angular/forms'; // use to compaire user details with database details
 import { Component, OnInit } from '@angular/core';
+
+import { UserService } from './../../../shared/user.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private userService: UserService
+  ) { }
 
   model = {
     email : '',
@@ -16,6 +21,10 @@ export class SignInComponent implements OnInit {
   emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
   ngOnInit() {
+  }
+
+  onSubmit(form: NgForm){
+    this.userService.login(form.value)
   }
 
 }
