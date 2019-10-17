@@ -9,6 +9,12 @@ export class SignInComponent implements OnInit {
 
   constructor() { }
 
+  model = {
+    email : '',
+    password : ''
+  };
+  emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
   ngOnInit() {
   }
 
