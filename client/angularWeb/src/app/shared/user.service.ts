@@ -23,4 +23,8 @@ export class UserService {
     return this.http.post( environment.apiBaseUrl + '/register', user);
   }
 
+  login(authCredentials)  {
+    return this.http.post( environment.apiBaseUrl + '/authenticate', authCredentials );
+  }
+
 }
