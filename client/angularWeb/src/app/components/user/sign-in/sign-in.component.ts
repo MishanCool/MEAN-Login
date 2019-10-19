@@ -1,5 +1,6 @@
 import { NgForm } from '@angular/forms'; // use to compaire user details with database details
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { UserService } from './../../../shared/user.service';
 
@@ -11,7 +12,8 @@ import { UserService } from './../../../shared/user.service';
 export class SignInComponent implements OnInit {
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
   ) { }
 
   model = {
@@ -20,11 +22,25 @@ export class SignInComponent implements OnInit {
   };
   emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
+  serverErrorMessages: string;
+
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm){
-    this.userService.login(form.value)
+  onSubmit(form: NgForm) {
+    this.userService.login(form.value).subscribe(
+      // success call back function
+      res => {
+        this.userService.setToken(res['token']);
+        this.router.navigateByUrl('userprofile');
+      },
+
+      // error
+      err => {
+        this.serverErrorMessages = err.error.message;
+      }
+
+    );
   }
 
 }
