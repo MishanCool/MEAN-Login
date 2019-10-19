@@ -1,3 +1,4 @@
+import { UserService } from './shared/user.service';
 // building imports
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -32,7 +33,7 @@ import { SignInComponent } from './components/user/sign-in/sign-in.component';
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

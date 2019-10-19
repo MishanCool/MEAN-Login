@@ -8,7 +8,7 @@ import { UserService } from './../../../shared/user.service';
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
-  providers: [UserService]
+  // providers: [UserService]<-this is not want to if app.module.ts file provider has UserService
 })
 export class SignUpComponent implements OnInit {
   emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
