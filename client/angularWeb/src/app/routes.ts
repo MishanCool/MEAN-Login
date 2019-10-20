@@ -5,6 +5,8 @@ import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 import { SignInComponent } from './components/user/sign-in/sign-in.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
+import { AuthGuard } from './auth/auth.guard';
+
 
 export const appRoutes: Routes = [
   {
@@ -18,7 +20,7 @@ export const appRoutes: Routes = [
   },
 
   {
-    path: 'userprofile', component: UserProfileComponent,
+    path: 'userprofile', component: UserProfileComponent, canActivate: [AuthGuard]
   },
 
   {                                                           //
