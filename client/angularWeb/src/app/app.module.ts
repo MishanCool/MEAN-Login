@@ -17,6 +17,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { appRoutes } from './routes';
 import { SignInComponent } from './components/user/sign-in/sign-in.component';
 
+// Other
+import { AuthGuard } from './auth/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,7 @@ import { SignInComponent } from './components/user/sign-in/sign-in.component';
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService , AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
