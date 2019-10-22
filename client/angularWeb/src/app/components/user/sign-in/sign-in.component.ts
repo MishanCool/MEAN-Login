@@ -14,7 +14,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router,
+    private router: Router
   ) { }
 
   model = {
@@ -26,6 +26,9 @@ export class SignInComponent implements OnInit {
   serverErrorMessages: string;
 
   ngOnInit() {
+    if (this.userService.isLoggedIn()) {
+      this.router.navigateByUrl('/userprofile');
+    }
   }
 
   onSubmit(form: NgForm) {
@@ -33,7 +36,7 @@ export class SignInComponent implements OnInit {
       // success call back function
       res => {
         this.userService.setToken(res['token']);
-        this.router.navigateByUrl('userprofile');
+        this.router.navigateByUrl('/userprofile');
       },
 
       // error
